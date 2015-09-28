@@ -1,0 +1,12 @@
+name: Revisions
+version: 0.0.1
+description: "This plugin creates simple page revisions by putting a timestamped copy of the page in a revisions folder in the page's path."
+icon: copy
+author:
+  name: Casey Grzecka
+  email: c@sey.gr
+  url: http://grav.sey.gr
+homepage: https://github.com/z3cka/grav-plugin-revisions
+keywords: revisions, plugin, backup, revert, content
+bugs: https://github.com/z3cka/grav-plugin-revisions/issues
+license: MIT
