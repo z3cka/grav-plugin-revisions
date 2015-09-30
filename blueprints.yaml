@@ -1,5 +1,5 @@
 name: Revisions
-version: 0.0.1
+version: 0.0.2
 description: "This plugin creates simple page revisions by putting a timestamped copy of the page in a revisions folder in the page's path."
 icon: copy
 author:

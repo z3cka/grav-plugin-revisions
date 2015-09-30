@@ -22,15 +22,15 @@ class RevisionsPlugin extends Plugin
     $revisions = preg_grep('/^([^.])/', scandir($this->grav['page']->path() .'/revisions'));
     // if empty create timestamped copy of file
     if (count($revisions) < 1) {
-      copy($this->grav['page']->path() .'/'. $this->grav['page']->name(), $this->grav['page']->path() . '/revisions/' . $this->grav['page']->name() . '.rev.' . date("Ymd-Gi"));
+      copy($this->grav['page']->path() .'/'. $this->grav['page']->name(), $this->grav['page']->path() . '/revisions/' . $this->grav['page']->name() . '.rev.' . date("Ymd-Hi"));
     } else {
       // compare contents of page with latest revision
-      $rev = file_get_contents($this->grav['page']->path() . '/revisions/' . end($revisions));
-      $current = file_get_contents($this->grav['page']->path() . '/' . $this->grav['page']->name());
+      $rev = md5_file($this->grav['page']->path() . '/revisions/' . end($revisions));
+      $current = md5_file($this->grav['page']->path() . '/' . $this->grav['page']->name());
       if ($rev == $current ) {
         $this->grav['debugger']->addMessage("these are the same! no new revision shall be made.");
       } else {
-        copy($this->grav['page']->path() .'/'. $this->grav['page']->name(), $this->grav['page']->path() . '/revisions/' . $this->grav['page']->name() . '.rev.' . date("Ymd-Gi"));
+        copy($this->grav['page']->path() .'/'. $this->grav['page']->name(), $this->grav['page']->path() . '/revisions/' . $this->grav['page']->name() . '.rev.' . date("Ymd-Hi"));
       }
     }
   }
